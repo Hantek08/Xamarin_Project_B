@@ -12,7 +12,6 @@ using Weather.Models;
 
 namespace Weather.Services
 {
-    //You replace this class witth your own Service from Project Part A
     public class OpenWeatherService
     {
         public EventHandler<string> WeatherForecastAvailable;
