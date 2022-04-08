@@ -5,7 +5,7 @@
              Title="About Weather">
 
     <StackLayout>
-        <Frame BackgroundColor="#F321B9" Padding="24" CornerRadius="0">
+        <Frame BackgroundColor="LightPink" Padding="24" CornerRadius="0">
             <Label Text="Project Part B" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
         <Label Text="Weather in Xamarin.Forms" FontSize="Title" Padding="30,10,30,10"/>

@@ -38,6 +38,7 @@ namespace Weather.Views
 
             //This is making the first load of data
             MainThread.BeginInvokeOnMainThread(async () => {await LoadForecast();});
+            
         }
 
         private async Task LoadForecast()
@@ -52,6 +53,7 @@ namespace Weather.Views
                     //t1.Result.Items.ForEach(x => x.Icon = null);
                     WeatherListView.ItemsSource = t1.Result.Items;
 
+                    
 
                 });
             });

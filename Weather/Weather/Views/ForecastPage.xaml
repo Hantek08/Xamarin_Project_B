@@ -7,24 +7,30 @@
 
     <ContentPage.Content>
 
-        <StackLayout BackgroundColor="Orange">
-            <Label>xxxxxxxx</Label>
+        <StackLayout BackgroundColor="White">
+            
             <ListView x:Name= "WeatherListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Vertical"
-                                BackgroundColor="HotPink"
+                                BackgroundColor="LightPink"
                                
                                 Padding="5"
                                 Margin="0,0,0,5">
 
-                                <Label Text="{Binding DateTime, StringFormat='{0:ddd HH\\:mm}'}"
-                                      TextColor="Black"
+
+                                <Label Text="{Binding DateTime, StringFormat='{0:dddd, dd MMMM yyyy}'}"
+
+                                TextColor="Black"
                                       FontSize="Medium"
                                       VerticalOptions="Center"
                                       Margin="20,0"/>
-                                <Label Text="{Binding Temperature}"/>
+                                <Label Text="{Binding DateTime, StringFormat='{0:h:mm tt}'}"></Label>
+                               
+                                <Label Text="{Binding .}"/>
+                                
+                                
 
 
 
