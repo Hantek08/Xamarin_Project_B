@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -24,7 +23,7 @@ namespace Weather.Views
         public ForecastPage()
         {
             InitializeComponent();
-            
+
             service = new OpenWeatherService();
             groupedforecast = new GroupedForecast();
         }
@@ -37,8 +36,7 @@ namespace Weather.Views
             //You want to set the Title or set the City
 
             //This is making the first load of data
-            MainThread.BeginInvokeOnMainThread(async () => {await LoadForecast();});
-            
+            MainThread.BeginInvokeOnMainThread(async () => { await LoadForecast(); });
         }
 
         private async Task LoadForecast()
@@ -46,23 +44,30 @@ namespace Weather.Views
             //Heare you load the forecast 
             await Task.Run(() =>
             {
-
                 Task<Forecast> t1 = service.GetForecastAsync(Title);
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     t1.Result.Items.ForEach(x => x.Icon = $"http://openweathermap.org/img/wn/{x.Icon}@2x.png");
-                    //t1.Result.Items.ForEach(x => x.Icon = $" http://openweathermap.org/img/wn/10d@2x.png{x.Icon}");
                     WeatherListView.ItemsSource = t1.Result.Items;
+               
 
-                    
+                });
+            });
+        }
+        private async void RefreshPage(object sender, EventArgs args)
+        {
+            await Task.Run(() =>
+            {
+                Task<Forecast> t1 = service.GetForecastAsync(Title);
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    t1.Result.Items.ForEach(x => x.Icon = $"http://openweathermap.org/img/wn/{x.Icon}@2x.png");
+                    WeatherListView.ItemsSource = t1.Result.Items;
+                
 
                 });
             });
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            ((Button)sender).Text = "";
-        }
     }
 }

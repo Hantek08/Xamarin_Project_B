@@ -21,9 +21,10 @@ namespace Weather.Services
         //part of your event code here
         public async Task<Forecast> GetForecastAsync(string City)
         {
-            //https://openweathermap.org/current
+          
             var language = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
             var uri = $"https://api.openweathermap.org/data/2.5/forecast?q={City}&units=metric&lang={language}&appid={apiKey}";
+            
 
             Forecast forecast = await ReadWebApiAsync(uri);
 
@@ -82,6 +83,7 @@ namespace Weather.Services
             item.Temperature = wdListItem.main.temp;
             item.Description = wdListItem.weather.Count > 0 ? wdListItem.weather.First().description : "No info";
             item.WindSpeed = wdListItem.wind.speed;
+            item.Icon = wdListItem.weather.Count > 0 ? wdListItem.weather.First().icon : "No info";
 
             return item;
         }
@@ -92,4 +94,5 @@ namespace Weather.Services
             return dateTime;
         }
     }
+
 }
