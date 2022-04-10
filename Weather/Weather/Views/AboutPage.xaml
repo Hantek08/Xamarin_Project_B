@@ -28,9 +28,10 @@
             </Label.FormattedText>
             
         </Label>
-        <Image x:Name="sunnyGif" Source="sunnyGif" 
+        <Image x:Name="gif1" Source="sunnyGif" 
                   VerticalOptions="End" HorizontalOptions="End" HeightRequest="150"/>
-        <Image x:Name="Gif" Source="Gif" VerticalOptions="End" HorizontalOptions="End" HeightRequest="150"></Image>
+        <Image x:Name="gif2" Source="Gif" VerticalOptions="End" HorizontalOptions="End" HeightRequest="150"></Image>
+      
       
                  
     </StackLayout>
