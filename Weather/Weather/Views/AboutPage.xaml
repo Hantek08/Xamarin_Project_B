@@ -3,37 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Weather.Views.AboutPage"
              Title="About Weather">
-
-    <StackLayout BackgroundColor="LightSalmon">
-        <Frame BackgroundColor="LightPink" Padding="24" CornerRadius="0">
+    <AbsoluteLayout>
+        <Image AbsoluteLayout.LayoutBounds="0,0,800,800" x:Name="myGif" Source="myGif" />
+        <StackLayout >
+        <Frame BackgroundColor="LightSalmon" Padding="24" CornerRadius="0">
             <Label Text="Project Part B" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
 
         </Frame>
 
-        <Label Text="Weather in Xamarin.Forms" FontSize="Title" Padding="30,10,30,10"/>
+            <Label TextColor="Black" Text="Weather in Xamarin.Forms" FontSize="Title" Padding="30,10,30,10"/>
         <Label Text="This part of the project is about making a simple UI in to the console weather service made in project part A using Flyout." 
                FontSize="16" Padding="30,0,30,0"/>
         <Label Text="Select a city and give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
+            <Label FontSize="16" Padding="30,24,30,0" TextColor="Black" > 
             
             <Label.FormattedText>
                 <FormattedString>
-                    <FormattedString.Spans>
-                        
-                        <Span Text="Created by Alexandra Salén Sammueang"/>
-                        
-                    </FormattedString.Spans>
+                        <FormattedString.Spans>
+
+                        </FormattedString.Spans>
                     
                 </FormattedString>
             </Label.FormattedText>
-            
-        </Label>
-        <Image x:Name="gif1" Source="sunnyGif" 
-                  VerticalOptions="End" HorizontalOptions="End" HeightRequest="150"/>
-        <Image x:Name="gif2" Source="Gif" VerticalOptions="End" HorizontalOptions="End" HeightRequest="150"></Image>
-      
-      
-                 
-    </StackLayout>
+               
+            </Label>
+            <Label Text="Created by Alexandra Salén Sammueang"  FontSize="Medium" FontAttributes="Italic" TextColor="White" />
 
+        </StackLayout>
+    </AbsoluteLayout>
 </ContentPage>

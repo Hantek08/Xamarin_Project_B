@@ -26,6 +26,7 @@
                                       FontSize="Medium"
                                       VerticalOptions="Center"
                                       Margin="20,0"/>
+                                
                                 <Label Text="{Binding DateTime, StringFormat='{0:h:mm tt}'}"></Label>
 
                                 <Label Text="{Binding .}"/>

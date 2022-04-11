@@ -49,7 +49,12 @@ namespace Weather.Views
                 {
                     t1.Result.Items.ForEach(x => x.Icon = $"http://openweathermap.org/img/wn/{x.Icon}@2x.png");
                     WeatherListView.ItemsSource = t1.Result.Items;
-               
+                    //var GroupedList = t1.Result.Items.GroupBy(item => item.DateTime);
+                    //WeatherListView.ItemsSource = GroupedList;
+                    //GroupedForecast groupedforecast = (GroupedForecast)t1.Result.Items.GroupBy(item => item.DateTime);
+                    //WeatherListView.ItemsSource = (System.Collections.IEnumerable)groupedforecast;
+
+
 
                 });
             });
