@@ -4,15 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Weather.Models;
 using Weather.Services;
+using System.Globalization;
 
 namespace Weather.Views
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
     public partial class ForecastPage : ContentPage
@@ -32,46 +35,30 @@ namespace Weather.Views
         {
             base.OnAppearing();
 
-            //Code here will run right before the screen appears
-            //You want to set the Title or set the City
-
-            //This is making the first load of data
             MainThread.BeginInvokeOnMainThread(async () => { await LoadForecast(); });
         }
 
         private async Task LoadForecast()
         {
-            //Heare you load the forecast 
-            await Task.Run(() =>
+
+            Forecast t1 = await service.GetForecastAsync(Title);
+
             {
-                Task<Forecast> t1 = service.GetForecastAsync(Title);
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    t1.Result.Items.ForEach(x => x.Icon = $"http://openweathermap.org/img/wn/{x.Icon}@2x.png");
-                    WeatherListView.ItemsSource = t1.Result.Items;
-                    //var GroupedList = t1.Result.Items.GroupBy(item => item.DateTime);
-                    //WeatherListView.ItemsSource = GroupedList;
-                    //GroupedForecast groupedforecast = (GroupedForecast)t1.Result.Items.GroupBy(item => item.DateTime);
-                    //WeatherListView.ItemsSource = (System.Collections.IEnumerable)groupedforecast;
+
+                t1.Items.ForEach(x => x.Icon = $"http://openweathermap.org/img/wn/{x.Icon}@2x.png");
 
 
+                WeatherListView.ItemsSource = t1.Items.GroupBy(x => x.DateTime.Date);
 
-                });
-            });
+            };
+
         }
+
         private async void RefreshPage(object sender, EventArgs args)
         {
-            await Task.Run(() =>
-            {
-                Task<Forecast> t1 = service.GetForecastAsync(Title);
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    t1.Result.Items.ForEach(x => x.Icon = $"http://openweathermap.org/img/wn/{x.Icon}@2x.png");
-                    WeatherListView.ItemsSource = t1.Result.Items;
-                
 
-                });
-            });
+            await LoadForecast();
+
         }
 
     }

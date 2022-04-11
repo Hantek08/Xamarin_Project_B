@@ -1,62 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:Weather.Views"
              x:Class="Weather.Views.ForecastPage">
 
+    <StackLayout BackgroundColor="LightPink">
+        <Button Text="RefreshPage"
+                    Clicked="RefreshPage"/>
 
-    <ContentPage.Content>
+        <ListView x:Name= "WeatherListView"
+                      IsGroupingEnabled="True"
+                      HasUnevenRows="True">
 
-        <StackLayout BackgroundColor="LightSalmon">
-            <Button Text="Refresh"
-                    Clicked="RefreshPage" />
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell 
+                            Height="40">
 
-            <ListView x:Name= "WeatherListView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Vertical"
-                                BackgroundColor="LightPink"
-                               
-                                Padding="5"
-                                Margin="0,0,0,5">
+                        <StackLayout
+                            HorizontalOptions="FillAndExpand"
+                            HeightRequest="40"
+                            BackgroundColor="LightSalmon"
+                            Padding="5"
+                            Orientation="Horizontal">
 
-                                <Label Text="{Binding DateTime, StringFormat='{0:dddd, dd MMMM yyyy}'}"
+                            <Label
 
+                                FontSize="20"
                                 TextColor="Black"
-                                      FontSize="Medium"
-                                      VerticalOptions="Center"
-                                      Margin="20,0"/>
-                                
-                                <Label Text="{Binding DateTime, StringFormat='{0:h:mm tt}'}"></Label>
+                                VerticalOptions="Center"
+                                FontAttributes="Bold"
+                                Text="{Binding Key, StringFormat='{0:dddd, dd MMMM yyyy}'}"/>
 
-                                <Label Text="{Binding .}"/>
+                        </StackLayout>
+
+                    </ViewCell>
+                </DataTemplate>
+
+            </ListView.GroupHeaderTemplate>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical"
+                                            BackgroundColor="LightPink"
+                                             Padding="5"
+                                             Margin="0,0,0,5">
 
 
-                                <StackLayout Grid.Column="3" 
+
+
+                            <Label Text="{Binding DateTime, StringFormat='{0:h:mm tt}'}"></Label>
+
+                            <Label Text="{Binding .}"/>
+
+
+                            <StackLayout Grid.Column="3" 
                                              Orientation="Horizontal" 
                                              Margin="20,0" 
                                              HorizontalOptions="Center" 
                                              VerticalOptions="Center">
 
-                                    <Image Source="{Binding Icon}" 
-                                           VerticalOptions="CenterAndExpand" 
-                                           HorizontalOptions="CenterAndExpand"
+                                <Image Source="{Binding Icon}" 
+                                           VerticalOptions="Center" 
+                                           HorizontalOptions="EndAndExpand"
                                            />
-                                </StackLayout>
-
-
-
                             </StackLayout>
-                        </ViewCell>
 
-                    </DataTemplate>
 
-                </ListView.ItemTemplate>
 
-            </ListView>
+                        </StackLayout>
+                    </ViewCell>
 
-        </StackLayout>
+                </DataTemplate>
 
-    </ContentPage.Content>
+            </ListView.ItemTemplate>
+
+
+        </ListView>
+
+    </StackLayout>
+
+
+
 
 </ContentPage>

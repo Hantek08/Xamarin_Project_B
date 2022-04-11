@@ -4,7 +4,7 @@
              x:Class="Weather.Views.MainPageFlyout"
              IconImageSource="hamburger.png"
              Title="Flyout">
-    <StackLayout>
+    <StackLayout BackgroundColor="LightSalmon">
         <ListView x:Name="MenuItemsListView"
               SeparatorVisibility="None"
               HasUnevenRows="true"
