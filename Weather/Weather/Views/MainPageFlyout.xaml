@@ -4,13 +4,13 @@
              x:Class="Weather.Views.MainPageFlyout"
              IconImageSource="hamburger.png"
              Title="Flyout">
-    <StackLayout BackgroundColor="LightSalmon">
+    <StackLayout BackgroundColor="#37474F">
         <ListView x:Name="MenuItemsListView"
               SeparatorVisibility="None"
               HasUnevenRows="true"
               ItemsSource="{Binding MenuItems}">
             <ListView.Header>
-                <Grid BackgroundColor="LightPink">
+                <Grid BackgroundColor="#37474F">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10"/>
                         <ColumnDefinition Width="*"/>
@@ -25,7 +25,7 @@
                     <Label
               Grid.Column="1"
               Grid.Row="2"
-              Text="Weather project"
+              Text="Weather Forcast" TextColor="#FFF"
               Style="{DynamicResource SubtitleStyle}"/>
                 </Grid>
             </ListView.Header>

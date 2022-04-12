@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Weather.Views.AboutPage"
              Title="About Weather">
-    <AbsoluteLayout>
+    <AbsoluteLayout BackgroundColor="#37474F">
         <Image AbsoluteLayout.LayoutBounds="0.5,0.5,800,800" x:Name="myGif" Source="myGif"  />
         <StackLayout >
-            <Frame BackgroundColor="LightPink" FlowDirection="LeftToRight" Padding="24" CornerRadius="1">
-                <Label Text="Welcome to my weatherforecast                       !"  HorizontalTextAlignment="End" TextColor="White" FontSize="36"/>
+            <Frame  BackgroundColor="#37474F" FlowDirection="LeftToRight" Padding="24" CornerRadius="1">
+                <Label Text="Welcome to my weather forecast!"  HorizontalTextAlignment="End" TextColor="#FFF" FontSize="36"/>
 
             </Frame>
 
-            <Label Text="Created by Alexandra Salén Sammueang" VerticalTextAlignment="End" FlowDirection="RightToLeft"  FontSize="Small" FontAttributes="Italic" TextColor="White" />
+            <Label Text="Created by Hanna Tekie" VerticalTextAlignment="End" FlowDirection="RightToLeft"  FontSize="Small" FontAttributes="Italic" TextColor="#FFF"/>
 
         </StackLayout>
     </AbsoluteLayout>
